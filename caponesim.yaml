@@ -51,7 +51,7 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: t2.micro
-      ImageId: ami-020fe4e0416376632 # LAMP AMI in N.Virginia
+      ImageId: ami-0b4f7b3d27dad4e36 # LAMP AMI in Frankfurt
       Tags:
         - Key: Name
           Value: My SSRF EC2 Instance
