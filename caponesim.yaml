@@ -48,24 +48,49 @@ Resources:
           - sts:AssumeRole
       Path: "/"
       Policies:
-      - PolicyName: SSRFS3Policy
+      - PolicyName: SSRFPolicy
         PolicyDocument:
           Version: '2012-10-17'
           Statement:
           - Effect: Allow
             Action:
-            - s3:ListBucket
-            Resource:
-            - !Sub
-              - 'arn:aws:s3:::${SSRFS3Bucket}'
-              - { SSRFS3Bucket: !Ref 'SSRFS3Bucket' }
+            - iam:GetRole
+            - iam:GetRolePolicy
+            - iam:GetPolicy
+            - iam:ListRolePolicies
+            - iam:ListRoles
+            Resource: '*' 
           - Effect: Allow
             Action:
-            - s3:GetObject
-            Resource:
-            - !Sub
-              - 'arn:aws:s3:::${SSRFS3Bucket}/*'
-              - { SSRFS3Bucket: !Ref 'SSRFS3Bucket' }
+            - iam:AttachRolePolicy
+            Resource: '*'
+            Condition:
+              StringEquals:
+                iam:PolicyArn: 
+                - !Sub
+                  - 'arn:aws:iam::${AWS::AccountId}:policy/${SSRFS3Policy}'
+                  - { SSRFS3Bucket: !Ref 'SSRFS3Policy' }
+  SSRFS3Policy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: SSRFS3Policy
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Action:
+          - s3:ListBucket
+          Resource:
+          - !Sub
+            - 'arn:aws:s3:::${SSRFS3Bucket}'
+            - { SSRFS3Bucket: !Ref 'SSRFS3Bucket' }
+        - Effect: Allow
+          Action:
+          - s3:GetObject
+          Resource:
+          - !Sub
+            - 'arn:aws:s3:::${SSRFS3Bucket}/*'
+            - { SSRFS3Bucket: !Ref 'SSRFS3Bucket' }  
   SSRFInstanceProfile:
     Type: AWS::IAM::InstanceProfile
     Properties:
