@@ -13,7 +13,7 @@ This CloudFormation template is **NOT** intended for deployment in a production 
 ## Getting Started
 
 - Make sure you have the latest version of `awscli` installed on your terminal.
-- Make sure you run this from the `us-east-1` (North Virginia) region on the AWS Console.
+- ~~Make sure you run this from the `us-east-1` (North Virginia) region on the AWS Console.~~ Run now in every region.
 - To get access to the Bitnami LAMP Stack AMI, visit https://aws.amazon.com/marketplace/pp/B072JNJZ5C/, click on "Continue to Subscribe" and then click on "Accept Terms".
 
 ### Deployment
@@ -52,6 +52,8 @@ This CloudFormation template is **NOT** intended for deployment in a production 
   set AWS_SESSION_TOKEN=<Token>
   ````
   *Note: Do not include quotes when setting Windows env variables.*
+
+##### For Fun and Game you will have to increase your permission level before being able to jump to next step
 
 - Now, you can see all the objects inside this bucket with `aws s3api list-objects --bucket <YOUR-S3-BUCKET>`
 - Then, you can download the bucket objects using `aws s3api get-object --bucket <YOUR-S3-BUCKET> --key <YOUR-S3-OBJECT> demo.txt`

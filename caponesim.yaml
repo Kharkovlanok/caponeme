@@ -69,7 +69,7 @@ Resources:
                 iam:PolicyArn: 
                 - !Sub
                   - 'arn:aws:iam::${AWS::AccountId}:policy/${SSRFS3Policy}'
-                  - { SSRFS3Bucket: !Ref 'SSRFS3Policy' }
+                  - { SSRFS3Policy: !Ref 'SSRFS3Policy' }
   SSRFS3Policy:
     Type: AWS::IAM::Policy
     Properties:
