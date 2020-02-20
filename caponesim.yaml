@@ -141,9 +141,6 @@ Metadata:
       IpAddress: 
         default: "IP Address"
 Outputs:
-  BucketName:
-    Value: !Ref 'SSRFS3Bucket'
-    Description: Name of the Amazon S3 bucket
   SSRFWebURL:
     Value: !Join [ "", [ "http://", !GetAtt SSRFInstance.PublicIp ] ]
     Description: URL of the vulnerable web server
