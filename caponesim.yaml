@@ -1,4 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
+Transform: S3Objects
 Mappings: 
   RegionMap: # All regions aside Hong Kong and Bahrein as they're disabled by default 
     us-east-1:      # N. Virginia
@@ -121,6 +122,14 @@ Resources:
         - Ref: SSRFS3SG
   SSRFS3Bucket:
     Type: AWS::S3::Bucket
+  SSRFObject:
+    Type: AWS::S3::Object
+    Properties:
+      Target:
+        Bucket: !Ref SSRFS3Bucket
+        Key: TOP_SECRET.txt
+        ContentType: text/plain
+      Body: YOU've goat me!
 Parameters:
   IpAddress:
     Description: Your computer ip address (Not CIDR notation). You can usually find it by searching "what's my ip" on the internet.
