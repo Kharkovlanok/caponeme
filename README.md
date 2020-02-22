@@ -15,7 +15,7 @@ This CloudFormation template is **NOT** intended for deployment in a production 
 - Make sure you have the latest version of `awscli` installed on your terminal.
 - ~~Make sure you run this from the `us-east-1` (North Virginia) region on the AWS Console.~~ Run now in every region.
 - To get access to the Bitnami LAMP Stack AMI, visit https://aws.amazon.com/marketplace/pp/B072JNJZ5C/, click on "Continue to Subscribe" and then click on "Accept Terms".
-- Deploy [this Cloudformation Macro](https://github.com/awslabs/aws-cloudformation-templates/tree/a11722da8379dd52726ecfcd552f7983e9bb563f/aws/services/CloudFormation/MacrosExamples/S3Objects) to allow the upload of an object to the S3 bucket. 
+- Deploy [this Cloudformation Macro](https://github.com/awslabs/aws-cloudformation-templates/tree/a11722da8379dd52726ecfcd552f7983e9bb563f/aws/services/CloudFormation/MacrosExamples/S3Objects) to allow the upload of an object to the S3 bucket. (It should be deployed for each region you wish to launch this template)
 
 ### Deployment
 

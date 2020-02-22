@@ -61,7 +61,9 @@ Resources:
             - iam:ListRolePolicies
             - iam:ListRoles
             - iam:ListPolicies
+            - iam:ListAttachedRolePolicies
             - iam:GetPolicyVersion 
+            - iam:ListInstanceProfiles
             Resource: '*' 
           - Effect: Allow
             Action:
