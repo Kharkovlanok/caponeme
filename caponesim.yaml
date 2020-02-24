@@ -109,7 +109,7 @@ Resources:
   SSRFInstance:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t2.micro
+      InstanceType: t3.micro
       ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]  # LAMP AMI in the template execution region
       Tags:
         - Key: Name

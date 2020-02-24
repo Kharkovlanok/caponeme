@@ -17,6 +17,12 @@ This CloudFormation template is **NOT** intended for deployment in a production 
 - To get access to the Bitnami LAMP Stack AMI, visit https://aws.amazon.com/marketplace/pp/B072JNJZ5C/, click on "Continue to Subscribe" and then click on "Accept Terms".
 - Deploy [this Cloudformation Macro](https://github.com/awslabs/aws-cloudformation-templates/tree/a11722da8379dd52726ecfcd552f7983e9bb563f/aws/services/CloudFormation/MacrosExamples/S3Objects) to allow the upload of an object to the S3 bucket. (It should be deployed for each region you wish to launch this template)
 
+### What are we deploying
+
+Instead of listing all of the ressources deployed by this template, find below an overview made using [cloudcraft.co](https://cloudcraft.co/). The only costing resource is a **t3.micro** EC2 instance which is covered in AWS free tiers.
+
+![Resources deployed via CloudFormation](/img/HackLab.png)
+
 ### Deployment
 
 - Download the `capmeonesim.yaml` file.
@@ -54,7 +60,7 @@ This CloudFormation template is **NOT** intended for deployment in a production 
   ````
   *Note: Do not include quotes when setting Windows env variables.*
 
-##### For Fun and Game you will have to increase your permission level before being able to jump to next step
+### For Fun and Game you will have to increase your permission level before being able to jump to next step
 
 - Now, you can see all the objects inside this bucket with `aws s3api list-objects --bucket <YOUR-S3-BUCKET>`
 - Then, you can download the bucket objects using `aws s3api get-object --bucket <YOUR-S3-BUCKET> --key <YOUR-S3-OBJECT> demo.txt`
