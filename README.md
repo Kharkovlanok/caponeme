@@ -19,7 +19,7 @@ This CloudFormation template is **NOT** intended for deployment in a production 
 
 ### What are we deploying
 
-Instead of listing all of the ressources deployed by this template, find below an overview made using [cloudcraft.co](https://cloudcraft.co/). The only costing resource is a **t3.micro** EC2 instance which is covered in AWS free tiers.
+Instead of listing all of the ressources deployed by this template, find below an overview made using [cloudcraft.co](https://cloudcraft.co/). The only costing resource is a **t2.micro** EC2 instance which is covered by the AWS free tiers.
 
 ![Resources deployed via CloudFormation](/img/HackLab.png)
 
