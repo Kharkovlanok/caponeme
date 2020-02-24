@@ -81,9 +81,15 @@ Resources:
         Statement:
         - Effect: Allow
           Action:
-          - s3:ListBucket
           - s3:ListAllMyBuckets
           Resource: '*'
+         - Effect: Allow
+          Action:
+          - s3:ListBucket
+          Resource:
+          - !Sub
+            - 'arn:aws:s3:::${SSRFS3Bucket}/*'
+            - { SSRFS3Bucket: !Ref 'SSRFS3Bucket' } 
         - Effect: Allow
           Action:
           - s3:GetObject
@@ -109,7 +115,7 @@ Resources:
   SSRFInstance:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t3.micro
+      InstanceType: t2.micro
       ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]  # LAMP AMI in the template execution region
       Tags:
         - Key: Name
