@@ -77,7 +77,7 @@ This policy reveals that there is only one other policy we can attach to our ins
 
 ### Discovering the contents of the S3 Bucket
 
-- Let's list the available buckets in the AWS account[1] `aws s3api list-buckets`
+- Let's list the available buckets in the AWS account[^1] `aws s3api list-buckets`
 - Now, you can see all the objects inside this bucket with `aws s3api list-objects --bucket <YOUR-S3-BUCKET>`
 - Then, you can download the bucket objects using `aws s3api get-object --bucket <YOUR-S3-BUCKET> --key <YOUR-S3-OBJECT> demo.txt`
 
@@ -143,4 +143,4 @@ License
 
 MIT
 
-[1]: To do so, we had to allow to list all of the S3 buckets present in the AWS account, while the object resources can only be read from the bucket created by this template. Again, don't run this template in a production account. 
+[^1]: To do so, we had to allow to list all of the S3 buckets present in the AWS account, while the object resources can only be read from the bucket created by this template. Again, don't run this template in a production account. 
