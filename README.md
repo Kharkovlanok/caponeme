@@ -60,7 +60,7 @@ Instead of listing all of the ressources deployed by this template, find below a
   ````
   *Note: Do not include quotes when setting Windows env variables.*
 
-### Escalate your permissions
+### Permission Escalation and Lateral Movement
 
 This additional step aims at explaining the standard privilege escalation process in AWS:
 
@@ -143,5 +143,4 @@ License
 
 MIT
 
-[1]: To do so we had to allow read access to all of the S3 buckets in the AWS, while the object resources can only be read from the bucket created by this template. Again, don't run this script in a production account. 
-[2]: 
+[1]: To do so, we had to allow to list all of the S3 buckets present in the AWS account, while the object resources can only be read from the bucket created by this template. Again, don't run this template in a production account. 

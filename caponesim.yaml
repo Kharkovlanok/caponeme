@@ -137,7 +137,13 @@ Resources:
         Bucket: !Ref SSRFS3Bucket
         Key: TOP_SECRET.txt
         ContentType: text/plain
-      Body: YOU've goat me!
+      Body: |
+        YOU've goat me!
+
+        (_(
+        /_/'_____/)
+        "  |      |
+           |""""""|     
 Parameters:
   IpAddress:
     Description: Your computer ip address (Not CIDR notation). You can usually find it by searching "what's my ip" on the internet.
