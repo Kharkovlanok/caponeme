@@ -88,7 +88,7 @@ Resources:
           - s3:ListBucket
           Resource:
           - !Sub
-            - 'arn:aws:s3:::${SSRFS3Bucket}/*'
+            - 'arn:aws:s3:::${SSRFS3Bucket}'
             - { SSRFS3Bucket: !Ref 'SSRFS3Bucket' } 
         - Effect: Allow
           Action:

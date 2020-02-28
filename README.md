@@ -29,8 +29,7 @@ Instead of listing all of the ressources deployed by this template, find below a
 - Log in to the AWS console
 - Go to CloudFormation service
 - Create new stack and upload the `capmeonesim.yaml` file you downloaded.
-- Allow the template to create IAM resources on your behalf and create the stack.
-- Take note of the S3 Bucket name from the CloudFormation Template Outputs, navigate to this bucket and upload some text files inside
+- Allow the template to create IAM resources on your behalf, as well as to require the **CAPABILITY\_AUTO\_EXPAND** capability and create the stack.
 - Click on the `SSRFWebURL` URL from the CloudFormation Template Outputs, it will redirect you to the vulnerable web application.
 
 *This is the page you should expect to see:*
@@ -60,11 +59,15 @@ Instead of listing all of the ressources deployed by this template, find below a
   ````
   *Note: Do not include quotes when setting Windows env variables.*
 
+  - If it doesn't work on Windows, you can also modify the AWS credential file at `C:\Users\[username]\.aws\credentials`, as shown on the below capture:
+
+  ![capture](/img/capture.PNG)
+
 ### Permission Escalation and Lateral Movement
 
 This additional step aims at explaining the standard privilege escalation process in AWS:
 
-- Let's find the exact IAM policy (Customer managed one) attached to our role using `aws iam  list-attached-role-policies --role-name <IAMRoleName>`
+- Let's find the exact IAM policy (Customer managed one) attached to our role using `aws iam  list-role-policies --role-name <IAMRoleName>`
 - Let's now show our exact permission `aws iam get-role-policy --role-name <IAMRoleName> --policy-name <IAMPolicyName>` 
 
 This policy reveals that there is only one other policy we can attach to our instance. In a real-life attack scenario, we would be attempted to list available policies and drop all of their content in a scripted fashion in a text file. But as we are here to learn, here how to do for our specific S3 access policy **[OPTIONAL STEP]**: 
