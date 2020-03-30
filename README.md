@@ -70,17 +70,17 @@ This additional step aims at explaining the standard privilege escalation proces
 - Let's find the exact IAM policy (Customer managed one) attached to our role using `aws iam  list-role-policies --role-name <IAMRoleName>`
 - Let's now show our exact permission `aws iam get-role-policy --role-name <IAMRoleName> --policy-name <IAMPolicyName>` 
 
-This policy reveals that there is only one other policy we can attach to our instance. In a real-life attack scenario, we would be attempted to list available policies and drop all of their content in a scripted fashion in a text file. But as we are here to learn, here how to do for our specific S3 access policy **[OPTIONAL STEP]**: 
+This policy reveals that there is only one other policy we can attach to our instance. In a real-life attack scenario, we would be attempted to list available policies and drop all of their content in a scripted fashion in a text file. But as we are here to learn, here how to do for our specific S3 access policy **[OPTIONAL STEPS]**: 
 
 - List Customer Managed policies `aws iam list-policies --scope Local`
 - Get the latest version of an IAM policy with `aws iam get-policy --policy-arn <IAMPolicyS3Arn>`
 - Show the content of the last version of the considered policy `aws iam  get-policy-version --policy-arn <IAMPolicyS3Arn> --version-id <versionID>`
 
-- The last step consists in attaching the policy to our current IAM role `aws iam attach-role-policy --role-name <IAMRoleName> --policy-arn <IAMPolicyS3Arn>`
+The last step consists in attaching the policy to our current IAM role `aws iam attach-role-policy --role-name <IAMRoleName> --policy-arn <IAMPolicyS3Arn>`
 
 ### Discovering the contents of the S3 Bucket
 
-- Let's list the available buckets in the AWS account[^1] `aws s3api list-buckets`
+- Let's list the [available buckets in the AWS account](#note) `aws s3api list-buckets`
 - Now, you can see all the objects inside this bucket with `aws s3api list-objects --bucket <YOUR-S3-BUCKET>`
 - Then, you can download the bucket objects using `aws s3api get-object --bucket <YOUR-S3-BUCKET> --key <YOUR-S3-OBJECT> demo.txt`
 
@@ -146,4 +146,4 @@ License
 
 MIT
 
-[^1]: To do so, we had to allow to list all of the S3 buckets present in the AWS account, while the object resources can only be read from the bucket created by this template. Again, don't run this template in a production account. 
+1{#note}: To do so, we had to allow to list all of the S3 buckets present in the AWS account, while the object resources can only be read from the bucket created by this template. Again, don't run this template in a production account. 
