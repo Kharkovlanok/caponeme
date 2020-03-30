@@ -146,4 +146,4 @@ License
 
 MIT
 
-[1]{#note} : To do so, we had to allow to list all of the S3 buckets present in the AWS account, while the object resources can only be read from the bucket created by this template. Again, don't run this template in a production account. 
+<a id="note">1</a> : To do so, we had to allow to list all of the S3 buckets present in the AWS account, while the object resources can only be read from the bucket created by this template. Again, don't run this template in a production account. 
